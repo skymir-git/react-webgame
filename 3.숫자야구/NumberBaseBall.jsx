@@ -1,12 +1,17 @@
 const React = require('react');
-const { Component } = React;
+const { Component, PureComponent } = React;
 
-class NumberBaseBall extends Component {
+class NumberBaseBall extends PureComponent /*Component*/ {
     state = {
         text: 'React Class!',
         value: '',
         result: '',
     };
+
+    // PureComponent 자동 처리
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return this.state.value !== nextState.value;
+    }
 
     onSubmitForm = (e) => {
         e.preventDefault()
