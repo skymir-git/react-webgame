@@ -1,7 +1,7 @@
 const path =  require('path');
 
 module.exports = {
-    name: 'wordRealy-setting',
+    name: 'learn',
     mode: 'development',
     devtool: 'eval',
     resolve: {
@@ -9,7 +9,7 @@ module.exports = {
     },
 
     entry: {
-        app: ['./client'],
+        app: ['./5.가위바위보/client'],
     }, // 입력
 
     module: {
