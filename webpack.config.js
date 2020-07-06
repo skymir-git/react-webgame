@@ -9,7 +9,7 @@ module.exports = {
     },
 
     entry: {
-        app: ['./5.가위바위보/client'],
+        app: ['./directory/client'],
     }, // 입력
 
     module: {
