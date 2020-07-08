@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
+import Tr from "./Tr";
 
-class Table extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+const Table = ({onClick, tableData, dispatch }) => {
+    return (
+        <table onClick={onClick}>
+            {Array(tableData.length).fill().map((tr, i) => (<Tr dispatch={dispatch} rowIndex={i} rowData={tableData[i]}/>))}
+        </table>
+    );
 }
 
 export default Table;
