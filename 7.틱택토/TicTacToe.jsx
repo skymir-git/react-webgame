@@ -1,7 +1,5 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useCallback } from 'react';
 import Table from "./Table";
-
-const {useCallback} = require("react");
 
 const initialState = {
     winner: '',
@@ -56,7 +54,7 @@ const TicTacToe = () => {
 
     return (
         <>
-            <Table onClick={onClickTable} tableData={state.tableData} dispatch={dispatch}/>
+            <Table onClickTable={onClickTable} tableData={state.tableData} dispatch={dispatch}/>
             {state.winner && <div>{state.winner}님의 승리!</div>}
         </>
     );
