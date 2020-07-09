@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import {CLICK_CELL, CHANGE_TURN} from "./TicTacToe";
+import { CLICK_CELL, CHANGE_TURN } from "./TicTacToe";
 
-const Td = ({ rowIndex, cellIndex, cellData, dispatch }) => {
+const Td = ({ rowIndex, cellData, cellIndex, dispatch }) => {
     const onClickTd = useCallback(() => {
         console.log(rowIndex, cellIndex);
         dispatch({ type: CLICK_CELL, row: rowIndex, cell: cellIndex });
