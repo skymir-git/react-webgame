@@ -1,14 +1,23 @@
-import React from 'react';
-import Td from "./Td";
+import React, { useRef, useEffect, memo, useMemo } from 'react';
+import Td from './Td';
 
-const Tr = ({ rowData, rowIndex, dispatch }) => {
+const Tr = memo(({ rowData, rowIndex, dispatch }) => {
+
+    const ref = useRef([]);
+    useEffect(() => {
+        ref.current = [rowData, dispatch, rowIndex];
+    }, [rowData, dispatch, rowIndex]);
+
     return (
         <tr>
             {Array(rowData.length).fill().map((td, i) => (
-                <Td key={'Td' + i} dispatch={dispatch} rowIndex={rowIndex} cellIndex={i} cellData={rowData[i]}/>
+                useMemo(
+                    () => <Td key={i} dispatch={dispatch} rowIndex={rowIndex} cellIndex={i} cellData={rowData[i]}>{''}</Td>,
+                    [rowData[i]],
+                )
             ))}
         </tr>
     );
-}
+});
 
 export default Tr;

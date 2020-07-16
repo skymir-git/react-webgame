@@ -1,14 +1,17 @@
-import React from 'react';
-import Tr from "./Tr";
+import React, {useMemo} from 'react';
+import Tr from './Tr';
 
-const Table = ({ tableData, dispatch }) => {
+const Table = ({tableData, dispatch}) => {
     return (
         <table>
             {Array(tableData.length).fill().map((tr, i) => (
-                <Tr key={'Tr' + i} dispatch={dispatch} rowIndex={i} rowData={tableData[i]}/>
+                useMemo(
+                    () => <Tr key={i} dispatch={dispatch} rowIndex={i} rowData={tableData[i]}/>,
+                    [tableData[i]],
+                )
             ))}
         </table>
     );
-}
+};
 
 export default Table;
