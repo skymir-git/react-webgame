@@ -59,6 +59,7 @@ const plantMine = (row, cell, mine) => {
 }
 
 export const START_GAME = 'START_GAME';
+export const END_GAME = 'END_GAME';
 
 const reducer = (state, action) => {
     switch (action.type) {
